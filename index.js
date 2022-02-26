@@ -1,9 +1,10 @@
 const express = require('express');
 const app = express();
 const port = 8080;
-const modKoders = require('./routers/koders');
-const koderRoutes = modKoders.router;
-const connection = modKoders.connect;
+const koderRoutes = require('./routers/koders');
+const mentors = require('./routers/mentors')
+const koders = koderRoutes.router;
+const connection = koderRoutes.connect;
 
 
 
@@ -22,8 +23,8 @@ app.listen(port, async (req, res) => {
 
 
 app.use(express.json());
-app.use('/koders', koderRoutes);
-
+app.use('/koders', koders);
+app.use('/mentors' , mentors)
 
     
 
